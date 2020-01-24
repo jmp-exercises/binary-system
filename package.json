@@ -1,0 +1,22 @@
+{
+  "name": "binary-system",
+  "version": "1.0.0",
+  "description": "Exercises for the \"Computers are binary creatures\" lecture",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmp-exercises/binary-system.git"
+  },
+  "author": "hendrikniemann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jmp-exercises/binary-system/issues"
+  },
+  "homepage": "https://github.com/jmp-exercises/binary-system#readme",
+  "dependencies": {
+    "jest": "^25.1.0"
+  }
+}
