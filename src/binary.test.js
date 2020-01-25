@@ -98,7 +98,9 @@ describe("binary", () => {
     it("should work for random integers", () => {
       for (let number of generateRandomNumbers(5)) {
         const base = Math.floor(Math.random() * 15) + 2;
-        expect(integerToBaseN(number, base)).toBe(number.toString(base));
+        expect(integerToBaseN(number, base).toUpperCase()).toBe(
+          number.toString(base).toUpperCase()
+        );
       }
     });
   });
