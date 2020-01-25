@@ -33,6 +33,12 @@ Write a function that takes a binary string (a string that only consists of the 
 
 Write a function that does the opposite of the function in exercise 1. It takes a number and returns a string if the binary system representation of the number.
 
+> _Note:_
+> To run the tests for exercise 2 change the `xdescribe` to `describe` to activate the tests in the tests file at `src/binary.test.js`.
+
 ## Bonus Exercise
 
 Write a function that takes two parameters: number to turn into a string and a base representation. This function is a more general version of the function above. Your function should be able to handle any base representation between 2 and 16. For systems that exeed the 10 digits available in the decimal system use `A` to represent 10, `B` to represent 11, and so on.
+
+> _Note:_
+> To run the tests for the bonus exercise change the `xdescribe` to `describe` to activate the tests in the tests file at `src/binary.test.js`.
