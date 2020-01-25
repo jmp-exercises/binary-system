@@ -1,8 +1,12 @@
-const { binaryToInteger, integerToBinary } = require("./binary.js");
+const {
+  binaryToInteger,
+  integerToBinary,
+  integerToBaseN
+} = require("./binary.js");
 
 function* generateRandomNumbers(amount) {
   for (let i = 0; i < amount; i++) {
-    yield Math.floor(Math.random() * (2 ** 32 - 1));
+    yield Math.floor(Math.random() * 2 ** 32);
   }
 }
 
@@ -36,7 +40,7 @@ describe("binary", () => {
     });
   });
 
-  xdescribe("Exeercise 2: integerToBinary", () => {
+  xdescribe("Exercise 2: integerToBinary", () => {
     it("should take exactly one parameter", () => {
       expect(integerToBinary.length).toBe(1);
     });
@@ -61,6 +65,40 @@ describe("binary", () => {
     it("should work for random integers", () => {
       for (let number of generateRandomNumbers(20)) {
         expect(integerToBinary(number)).toBe(number.toString(2));
+      }
+    });
+  });
+
+  xdescribe("Bonus Exercise: integerToBaseN", () => {
+    it("should take exactly two parameters", () => {
+      expect(integerToBaseN.length).toBe(2);
+    });
+
+    it("should translate the integer 0 correctly", () => {
+      expect(integerToBaseN(0, 2)).toBe("0");
+      expect(integerToBaseN(0, 7)).toBe("0");
+      expect(integerToBaseN(0, 13)).toBe("0");
+      expect(integerToBaseN(0, 16)).toBe("0");
+    });
+
+    it("should translate the integer 1 correctly", () => {
+      expect(integerToBaseN(1, 3)).toBe("1");
+      expect(integerToBaseN(1, 6)).toBe("1");
+      expect(integerToBaseN(1, 8)).toBe("1");
+      expect(integerToBaseN(1, 15)).toBe("1");
+    });
+
+    it("should use A-F as alphabet for letters hight than 9", () => {
+      expect(integerToBaseN(10, 16).toUpperCase()).toBe("A");
+      expect(integerToBaseN(11, 12).toUpperCase()).toBe("B");
+      expect(integerToBaseN(255, 16).toUpperCase()).toBe("FF");
+      expect(integerToBaseN(13, 15).toUpperCase()).toBe("D");
+    });
+
+    it("should work for random integers", () => {
+      for (let number of generateRandomNumbers(5)) {
+        const base = Math.floor(Math.random() * 15) + 2;
+        expect(integerToBaseN(number, base)).toBe(number.toString(base));
       }
     });
   });
